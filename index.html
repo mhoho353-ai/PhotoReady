@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PhotoReady — Prepare Any Image</title>
+
+  <meta
+    name="description"
+    content="Prepare, resize, crop and compress your photos for social media, marketplaces, documents and more."
+  >
+
+  <meta name="theme-color" content="#0b1020">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+
+      <div>
+        <div class="brand-name">PhotoReady</div>
+        <div class="brand-sub">Smart image preparation</div>
+      </div>
+    </div>
+
+    <div class="privacy-pill">
+      <span class="privacy-dot"></span>
+      Processed in your browser
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-glow glow-one"></div>
+      <div class="hero-glow glow-two"></div>
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          <span>✦</span>
+          IMAGE PREPARATION TOOL
+        </div>
+
+        <h1>
+          Your photo.
+          <span>Ready for anywhere.</span>
+        </h1>
+
+        <p class="hero-text">
+          Resize, crop, compress and convert your image
+          for the place you actually need it.
+        </p>
+
+        <div class="hero-points">
+          <span>✓ Smart sizes</span>
+          <span>✓ File-size control</span>
+          <span>✓ No upload required</span>
+        </div>
+
+      </div>
+
+
+      <!-- UPLOAD -->
+      <div class="upload-card" id="uploadCard">
+
+        <div class="upload-icon">
+          ↑
+        </div>
+
+        <h2>Drop your image here</h2>
+
+        <p>
+          or choose a photo from your device
+        </p>
+
+        <label class="upload-button">
+          Choose Image
+          <input
+            type="file"
+            id="imageInput"
+            accept="image/*"
+          >
+        </label>
+
+        <div class="upload-note">
+          JPG, PNG, WebP and other common image formats · Max 25 MB
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EDITOR -->
+    <section class="workspace" id="editorSection">
+
+      <!-- ORIGINAL -->
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">STEP 1</div>
+          <h2>Your image</h2>
+        </div>
+
+        <button class="ghost-button" id="changeImageBtn">
+          Change image
+        </button>
+      </div>
+
+
+      <div class="original-card card">
+
+        <div class="original-preview">
+          <img id="originalPreview" alt="Original image">
+        </div>
+
+        <div class="original-info">
+
+          <div class="file-name" id="fileName">
+            image.jpg
+          </div>
+
+          <div class="file-meta">
+            <span id="originalDimensions">—</span>
+            <span>•</span>
+            <span id="originalSize">—</span>
+          </div>
+
+          <div class="check-panel">
+
+            <div class="check-title">
+              <span class="check-icon">✓</span>
+              Photo Check
+            </div>
+
+            <div class="check-list" id="checkList">
+              <div>
+                <span>✓</span>
+                Image loaded successfully
+              </div>
+
+              <div>
+                <span>✓</span>
+                Ready for processing
+              </div>
+
+              <div>
+                <span>✓</span>
+                Original image stays unchanged
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRESETS -->
+      <div class="section-heading preset-heading">
+
+        <div>
+          <div class="section-kicker">STEP 2</div>
+          <h2>What do you need it for?</h2>
+          <p class="section-description">
+            Choose a ready-made size or use Custom.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="preset-tools">
+
+        <div class="search-box">
+          <span>⌕</span>
+
+          <input
+            type="search"
+            id="presetSearch"
+            placeholder="Search: YouTube, Etsy, passport..."
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="category-tabs" id="categoryTabs">
+
+          <button class="category-tab active" data-category="all">
+            All
+          </button>
+
+          <button class="category-tab" data-category="documents">
+            🪪 Documents
+          </button>
+
+          <button class="category-tab" data-category="commerce">
+            🛍 Selling
+          </button>
+
+          <button class="category-tab" data-category="social">
+            📱 Social
+          </button>
+
+          <button class="category-tab" data-category="professional">
+            💼 Work
+          </button>
+
+          <button class="category-tab" data-category="general">
+            ✦ General
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="preset-grid" id="presetGrid"></div>
+
+      <div class="empty-search" id="emptySearch">
+        No matching presets found.
+      </div>
+
+
+      <!-- SETTINGS -->
+      <section class="settings-card card" id="settingsCard">
+
+        <div class="settings-top">
+
+          <div>
+            <div class="section-kicker">STEP 3</div>
+
+            <h2 id="selectedPresetTitle">
+              Select a preset
+            </h2>
+
+            <p id="selectedPresetDescription">
+              Choose an option above.
+            </p>
+          </div>
+
+          <div class="selected-badge">
+            ✓ Selected
+          </div>
+
+        </div>
+
+
+        <div class="settings-grid">
+
+          <div class="setting">
+
+            <label for="formatSelect">
+              Output format
+            </label>
+
+            <select id="formatSelect">
+              <option value="image/jpeg">JPG</option>
+              <option value="image/png">PNG</option>
+              <option value="image/webp">WebP</option>
+            </select>
+
+            <div class="setting-help">
+              JPG is usually the best choice for photos.
+            </div>
+
+          </div>
+
+
+          <div class="setting">
+
+            <label for="fitSelect">
+              Image fitting
+            </label>
+
+            <select id="fitSelect">
+
+              <option value="crop">
+                Fill & crop
+              </option>
+
+              <option value="contain">
+                Fit inside
+              </option>
+
+            </select>
+
+            <div class="setting-help">
+              Crop fills the frame. Fit keeps the whole image.
+            </div>
+
+          </div>
+
+
+          <div class="setting">
+
+            <label for="qualityRange">
+              Quality
+              <strong id="qualityValue">90%</strong>
+            </label>
+
+            <input
+              type="range"
+              id="qualityRange"
+              min="40"
+              max="100"
+              value="90"
+            >
+
+            <div class="setting-help">
+              Higher quality usually means a larger file.
+            </div>
+
+          </div>
+
+
+          <div class="setting">
+
+            <label for="sizeTarget">
+              Target file size
+            </label>
+
+            <select id="sizeTarget">
+
+              <option value="best">
+                Best quality
+              </option>
+
+              <option value="100">
+                Under 100 KB
+              </option>
+
+              <option value="250">
+                Under 250 KB
+              </option>
+
+              <option value="500">
+                Under 500 KB
+              </option>
+
+              <option value="1024">
+                Under 1 MB
+              </option>
+
+            </select>
+
+            <div class="setting-help">
+              The tool will try to reduce quality until it reaches the target.
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="advanced-note">
+          <span>ⓘ</span>
+
+          <div>
+            <strong>Important:</strong>
+            Target size is an automatic best-effort compression.
+            Very detailed images may not reach extremely small sizes
+            without visible quality loss.
+          </div>
+        </div>
+
+
+        <div class="action-row">
+
+          <button
+            class="primary-button"
+            id="prepareButton"
+          >
+            <span>✦</span>
+            Make My Photo Ready
+          </button>
+
+          <button
+            class="secondary-button"
+            id="multipleButton"
+          >
+            Create Multiple Versions
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- RESULT -->
+      <section class="result-card card" id="resultCard">
+
+        <div class="result-header">
+
+          <div>
+            <div class="section-kicker">RESULT</div>
+            <h2>Your photo is ready</h2>
+          </div>
+
+          <div class="success-badge">
+            ✓ Ready
+          </div>
+
+        </div>
+
+
+        <div class="result-content">
+
+          <div class="result-preview">
+            <img id="resultPreview" alt="Prepared image">
+          </div>
+
+
+          <div class="result-info">
+
+            <div class="result-stats">
+
+              <div class="result-stat">
+                <span>Dimensions</span>
+                <strong id="resultDimensions">—</strong>
+              </div>
+
+              <div class="result-stat">
+                <span>File size</span>
+                <strong id="resultSize">—</strong>
+              </div>
+
+              <div class="result-stat">
+                <span>Format</span>
+                <strong id="resultFormat">—</strong>
+              </div>
+
+            </div>
+
+
+            <div class="result-actions">
+
+              <a
+                class="download-button"
+                id="downloadButton"
+                href="#"
+                download
+              >
+                ↓ Download Image
+              </a>
+
+              <button
+                class="ghost-button full"
+                id="prepareAnotherButton"
+              >
+                Prepare Another Version
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- MULTIPLE RESULTS -->
+      <section
+        class="multi-card card"
+        id="multiCard"
+      >
+
+        <div class="result-header">
+
+          <div>
+            <div class="section-kicker">BATCH</div>
+            <h2>Multiple versions</h2>
+
+            <p>
+              One image, several ready-to-use versions.
+            </p>
+          </div>
+
+          <div class="success-badge">
+            ✓ Complete
+          </div>
+
+        </div>
+
+
+        <div
+          class="multi-results"
+          id="multiResults"
+        ></div>
+
+      </section>
+
+
+      <!-- FOOTNOTE -->
+      <div class="privacy-note">
+
+        <span>🔒</span>
+
+        <div>
+          <strong>Your image stays on your device.</strong>
+          PhotoReady processes images in your browser.
+          Images are not intentionally uploaded to a PhotoReady server.
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <div>
+      <strong>PhotoReady</strong>
+      <span> — Simple image preparation.</span>
+    </div>
+
+    <div>
+      © <span id="year"></span>
+    </div>
+
+  </footer>
+
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+
+  <script src="app.js"></script>
+
+</body>
+</html>
