@@ -1,0 +1,10 @@
+{
+  "name": "PhotoReady",
+  "short_name": "PhotoReady",
+  "description": "Resize, crop, compress and prepare photos for social media, marketplaces, documents and everyday use.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#111936",
+  "icons": []
+}
