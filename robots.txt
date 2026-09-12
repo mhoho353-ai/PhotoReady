@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mhoho353-ai.github.io/PhotoReady/sitemap.xml
