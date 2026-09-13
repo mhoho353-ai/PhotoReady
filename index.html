@@ -1,17 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PhotoReady — Prepare Any Image</title>
+  <!-- SEO Meta Tags -->
+  <title>PhotoReady — Smart Image Resizer, Compressor & Format Converter</title>
+  <meta name="description" content="Free online tool to resize, crop, compress, and convert images instantly in your browser. Perfect for passport photos, Amazon, Etsy, YouTube thumbnails, and social media without uploading files to any server.">
+  <meta name="keywords" content="image compressor, resize image online, convert webp to jpg, passport photo maker, batch image converter, image size reducer">
+  <link rel="canonical" href="https://mhoho353-ai.github.io/PhotoReady/">
 
-  <meta
-    name="description"
-    content="Prepare, resize, crop and compress your photos for social media, marketplaces, documents and more."
-  >
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mhoho353-ai.github.io/PhotoReady/">
+  <meta property="og:title" content="PhotoReady — Smart Image Resizer & Compressor">
+  <meta property="og:description" content="Resize, crop, compress, and convert your photos securely right inside your browser without uploading.">
+  <meta property="og:image" content="https://mhoho353-ai.github.io/PhotoReady/og-image.jpg">
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PhotoReady — Smart Image Resizer & Compressor">
+  <meta name="twitter:description" content="Resize, crop, compress, and convert your photos securely right inside your browser without uploading.">
+
+  <!-- Robots & Theme -->
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0b1020">
+
+  <!-- Structured Data (JSON-LD) for Google Search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PhotoReady",
+    "url": "https://mhoho353-ai.github.io/PhotoReady/",
+    "description": "Free online browser-based tool to resize, crop, compress, and convert images for e-commerce, documents, and social media.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -29,7 +61,7 @@
     </div>
 
     <div class="privacy-pill">
-      <span class="privacy-dot"></span>
+      <span class="privacy-dot" aria-hidden="true"></span>
       Processed in your browser
     </div>
   </header>
@@ -40,14 +72,14 @@
     <!-- HERO -->
     <section class="hero">
 
-      <div class="hero-glow glow-one"></div>
-      <div class="hero-glow glow-two"></div>
+      <div class="hero-glow glow-one" aria-hidden="true"></div>
+      <div class="hero-glow glow-two" aria-hidden="true"></div>
 
       <div class="hero-content">
 
         <div class="eyebrow">
-          <span>✦</span>
-          IMAGE PREPARATION TOOL
+          <span aria-hidden="true">✦</span>
+          SECURE BROWSER IMAGE TOOL
         </div>
 
         <h1>
@@ -56,14 +88,13 @@
         </h1>
 
         <p class="hero-text">
-          Resize, crop, compress and convert your image
-          for the place you actually need it.
+          Resize, crop, compress, and convert your images instantly for e-commerce, official documents, and social media platforms.
         </p>
 
         <div class="hero-points">
-          <span>✓ Smart sizes</span>
+          <span>✓ Smart presets</span>
           <span>✓ File-size control</span>
-          <span>✓ No upload required</span>
+          <span>✓ 100% Privacy (No upload)</span>
         </div>
 
       </div>
@@ -72,7 +103,7 @@
       <!-- UPLOAD -->
       <div class="upload-card" id="uploadCard">
 
-        <div class="upload-icon">
+        <div class="upload-icon" aria-hidden="true">
           ↑
         </div>
 
@@ -88,6 +119,7 @@
             type="file"
             id="imageInput"
             accept="image/*"
+            aria-label="Choose an image file from your device"
           >
         </label>
 
@@ -107,7 +139,7 @@
       <div class="section-heading">
         <div>
           <div class="section-kicker">STEP 1</div>
-          <h2>Your image</h2>
+          <h2>Your image overview</h2>
         </div>
 
         <button class="ghost-button" id="changeImageBtn">
@@ -119,7 +151,7 @@
       <div class="original-card card">
 
         <div class="original-preview">
-          <img id="originalPreview" alt="Original image">
+          <img id="originalPreview" alt="Original preview of the uploaded photo file">
         </div>
 
         <div class="original-info">
@@ -130,30 +162,30 @@
 
           <div class="file-meta">
             <span id="originalDimensions">—</span>
-            <span>•</span>
+            <span aria-hidden="true">•</span>
             <span id="originalSize">—</span>
           </div>
 
           <div class="check-panel">
 
             <div class="check-title">
-              <span class="check-icon">✓</span>
+              <span class="check-icon" aria-hidden="true">✓</span>
               Photo Check
             </div>
 
             <div class="check-list" id="checkList">
               <div>
-                <span>✓</span>
+                <span aria-hidden="true">✓</span>
                 Image loaded successfully
               </div>
 
               <div>
-                <span>✓</span>
+                <span aria-hidden="true">✓</span>
                 Ready for processing
               </div>
 
               <div>
-                <span>✓</span>
+                <span aria-hidden="true">✓</span>
                 Original image stays unchanged
               </div>
             </div>
@@ -172,7 +204,7 @@
           <div class="section-kicker">STEP 2</div>
           <h2>What do you need it for?</h2>
           <p class="section-description">
-            Choose a ready-made size or use Custom.
+            Choose a ready-made preset or use custom settings.
           </p>
         </div>
 
@@ -182,13 +214,14 @@
       <div class="preset-tools">
 
         <div class="search-box">
-          <span>⌕</span>
+          <span aria-hidden="true">⌕</span>
 
           <input
             type="search"
             id="presetSearch"
-            placeholder="Search: YouTube, Etsy, passport..."
+            placeholder="Search: YouTube, Etsy, passport, Amazon..."
             autocomplete="off"
+            aria-label="Search image presets"
           >
         </div>
 
@@ -269,7 +302,7 @@
             </select>
 
             <div class="setting-help">
-              JPG is usually the best choice for photos.
+              JPG is usually the best choice for standard photos.
             </div>
 
           </div>
@@ -294,7 +327,7 @@
             </select>
 
             <div class="setting-help">
-              Crop fills the frame. Fit keeps the whole image.
+              Crop fills the frame. Fit keeps the whole image visible.
             </div>
 
           </div>
@@ -313,10 +346,11 @@
               min="40"
               max="100"
               value="90"
+              aria-label="Image quality slider"
             >
 
             <div class="setting-help">
-              Higher quality usually means a larger file.
+              Higher quality yields a cleaner view but larger file size.
             </div>
 
           </div>
@@ -353,7 +387,7 @@
             </select>
 
             <div class="setting-help">
-              The tool will try to reduce quality until it reaches the target.
+              Automatically scales compression to match your target file size limit.
             </div>
 
           </div>
@@ -362,13 +396,12 @@
 
 
         <div class="advanced-note">
-          <span>ⓘ</span>
+          <span aria-hidden="true">ⓘ</span>
 
           <div>
             <strong>Important:</strong>
             Target size is an automatic best-effort compression.
-            Very detailed images may not reach extremely small sizes
-            without visible quality loss.
+            Very detailed images may require slightly higher targets to prevent quality drop.
           </div>
         </div>
 
@@ -379,7 +412,7 @@
             class="primary-button"
             id="prepareButton"
           >
-            <span>✦</span>
+            <span aria-hidden="true">✦</span>
             Make My Photo Ready
           </button>
 
@@ -415,7 +448,7 @@
         <div class="result-content">
 
           <div class="result-preview">
-            <img id="resultPreview" alt="Prepared image">
+            <img id="resultPreview" alt="Processed and optimized final photo result">
           </div>
 
 
@@ -481,7 +514,7 @@
             <h2>Multiple versions</h2>
 
             <p>
-              One image, several ready-to-use versions.
+              One image, several ready-to-use platform versions.
             </p>
           </div>
 
@@ -503,12 +536,12 @@
       <!-- FOOTNOTE -->
       <div class="privacy-note">
 
-        <span>🔒</span>
+        <span aria-hidden="true">🔒</span>
 
         <div>
           <strong>Your image stays on your device.</strong>
-          PhotoReady processes images in your browser.
-          Images are not intentionally uploaded to a PhotoReady server.
+          PhotoReady processes images entirely inside your web browser.
+          Your personal photos are never uploaded or stored on any server.
         </div>
 
       </div>
@@ -522,11 +555,11 @@
 
     <div>
       <strong>PhotoReady</strong>
-      <span> — Simple image preparation.</span>
+      <span> — Smart client-side image preparation tool.</span>
     </div>
 
     <div>
-      © <span id="year"></span>
+      © <span id="year"></span> PhotoReady. All rights reserved.
     </div>
 
   </footer>
