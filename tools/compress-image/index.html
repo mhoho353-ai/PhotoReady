@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Compress Image Online — JPG, PNG & WebP | PhotoReady</title>
+
+  <meta
+    name="description"
+    content="Compress JPG, PNG and WebP images online in your browser. Reduce image file size with adjustable quality and optional target sizes. No image upload required."
+  >
+
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="PhotoReady">
+  <meta name="theme-color" content="#0b1020">
+
+  <link
+    rel="canonical"
+    href="https://mhoho353-ai.github.io/PhotoReady/tools/compress-image/"
+  >
+
+  <meta property="og:type" content="website">
+  <meta
+    property="og:title"
+    content="Compress Image Online — JPG, PNG & WebP | PhotoReady"
+  >
+  <meta
+    property="og:description"
+    content="Reduce image file size directly in your browser with PhotoReady. No image upload required."
+  >
+  <meta
+    property="og:url"
+    content="https://mhoho353-ai.github.io/PhotoReady/tools/compress-image/"
+  >
+  <meta property="og:site_name" content="PhotoReady">
+
+  <meta name="twitter:card" content="summary">
+  <meta
+    name="twitter:title"
+    content="Compress Image Online | PhotoReady"
+  >
+  <meta
+    name="twitter:description"
+    content="Compress JPG, PNG and WebP images in your browser without uploading them to a server."
+  >
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PhotoReady Image Compressor",
+    "url": "https://mhoho353-ai.github.io/PhotoReady/tools/compress-image/",
+    "description": "Browser-based image compression tool for JPG, PNG and WebP images.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires a modern web browser with JavaScript enabled",
+    "isPartOf": {
+      "@type": "WebApplication",
+      "name": "PhotoReady",
+      "url": "https://mhoho353-ai.github.io/PhotoReady/"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+
+    <a
+      class="brand"
+      href="../../"
+      aria-label="PhotoReady home"
+    >
+      <span class="brand-mark">P</span>
+
+      <span>
+        <strong>PhotoReady</strong>
+        <small>Smart image preparation</small>
+      </span>
+    </a>
+
+    <span class="privacy-pill">
+      🔒 Processed in your browser
+    </span>
+
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <p class="eyebrow">
+        PHOTO TOOL
+      </p>
+
+      <h1>
+        Compress Image Online
+      </h1>
+
+      <p class="lead">
+        Reduce the file size of JPG, PNG and WebP images
+        directly in your browser.
+      </p>
+
+      <p class="privacy">
+        Your image is processed on your device.
+        It is not intentionally uploaded to a PhotoReady server.
+      </p>
+
+    </section>
+
+
+    <!-- TOOL -->
+
+    <section
+      class="tool-card"
+      aria-labelledby="compress-tool-title"
+    >
+
+      <h2 id="compress-tool-title">
+        Compress your image
+      </h2>
+
+
+      <!-- UPLOAD -->
+
+      <div
+        class="drop-zone"
+        id="dropZone"
+      >
+
+        <div class="upload-icon">
+          ↑
+        </div>
+
+        <h3>
+          Choose an image
+        </h3>
+
+        <p>
+          JPG, PNG, WebP and other browser-supported image types
+          · Max 25 MB
+        </p>
+
+        <button
+          class="primary"
+          id="uploadButton"
+          type="button"
+        >
+          Choose Image
+        </button>
+
+        <input
+          id="fileInput"
+          type="file"
+          accept="image/*"
+          hidden
+        >
+
+        <p class="drop-hint">
+          Or drag and drop an image here
+        </p>
+
+      </div>
+
+
+      <!-- MESSAGES -->
+
+      <div
+        class="message"
+        id="message"
+        role="status"
+        aria-live="polite"
+      ></div>
+
+
+      <!-- EDITOR -->
+
+      <section
+        class="editor"
+        id="editor"
+        hidden
+      >
+
+        <!-- IMAGE -->
+
+        <div class="image-card">
+
+          <img
+            id="preview"
+            alt="Selected image preview"
+          >
+
+          <div class="image-meta">
+
+            <strong id="fileName">
+              image.jpg
+            </strong>
+
+            <span id="originalInfo">
+              —
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- SETTINGS -->
+
+        <div class="settings">
+
+          <div class="field">
+
+            <label for="format">
+              Output format
+            </label>
+
+            <select id="format">
+
+              <option value="jpg">
+                JPG
+              </option>
+
+              <option value="webp">
+                WebP
+              </option>
+
+              <option value="png">
+                PNG
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="quality">
+
+              Quality
+
+              <strong id="qualityValue">
+                85%
+              </strong>
+
+            </label>
+
+            <input
+              id="quality"
+              type="range"
+              min="40"
+              max="100"
+              value="85"
+            >
+
+            <small>
+              Higher quality usually means a larger file.
+            </small>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="target">
+              Target file size
+            </label>
+
+            <select id="target">
+
+              <option value="best">
+                Best quality
+              </option>
+
+              <option value="100">
+                Under 100 KB
+              </option>
+
+              <option value="250">
+                Under 250 KB
+              </option>
+
+              <option value="500">
+                Under 500 KB
+              </option>
+
+              <option value="1024">
+                Under 1 MB
+              </option>
+
+            </select>
+
+            <small>
+              Target sizes are best-effort.
+              Very detailed images may need a larger file.
+            </small>
+
+          </div>
+
+
+          <button
+            class="primary full"
+            id="compressButton"
+            type="button"
+          >
+            Compress Image
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- RESULT -->
+
+      <section
+        class="result"
+        id="result"
+        hidden
+        aria-labelledby="result-title"
+      >
+
+        <div>
+
+          <p class="eyebrow">
+            RESULT
+          </p>
+
+          <h2 id="result-title">
+            Your compressed image is ready
+          </h2>
+
+          <p id="resultInfo">
+            —
+          </p>
+
+        </div>
+
+
+        <img
+          id="resultPreview"
+          alt="Compressed image preview"
+        >
+
+
+        <div class="result-actions">
+
+          <a
+            class="download"
+            id="download"
+            href="#"
+            download
+          >
+            ↓ Download Image
+          </a>
+
+          <button
+            class="secondary"
+            id="newImage"
+            type="button"
+          >
+            Choose Another Image
+          </button>
+
+        </div>
+
+      </section>
+
+    </section>
+
+
+    <!-- SEO CONTENT -->
+
+    <section class="content">
+
+      <h2>
+        Compress images without uploading them
+      </h2>
+
+      <p>
+        PhotoReady lets you reduce image file size in your browser.
+        Choose JPG, WebP or PNG, adjust quality, and optionally
+        aim for a smaller target file size.
+      </p>
+
+
+      <div class="info-grid">
+
+        <article>
+
+          <h3>
+            JPG compression
+          </h3>
+
+          <p>
+            Useful for photographs and images where
+            a smaller file size matters.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <h3>
+            WebP compression
+          </h3>
+
+          <p>
+            Useful for modern websites and often produces
+            smaller files than JPG at similar visual quality.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <h3>
+            Private by design
+          </h3>
+
+          <p>
+            The tool performs processing in your browser
+            instead of intentionally uploading your image
+            to a PhotoReady server.
+          </p>
+
+        </article>
+
+      </div>
+
+
+      <p class="back-link">
+
+        <a href="../../">
+          ← Back to PhotoReady
+        </a>
+
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    PhotoReady — Simple image preparation.
+  </footer>
+
+
+  <script src="app.js"></script>
+
+</body>
+</html>
